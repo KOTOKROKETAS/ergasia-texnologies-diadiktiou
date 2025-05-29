@@ -1,0 +1,249 @@
+
+/* Elegant Base Styles – by ChatGPT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+  :root {
+  --color-primary: #f97316;      /* π.χ. πορτοκαλί */
+  --border-radius: 1rem;         /* πιο “στρογγυλές” γωνίες */
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.15);  /* βαθύτερη σκιά */
+}
+.btn-secondary {
+  background: #0ea5e9;            /* κυανό */
+  border-color: #0ea5e9;
+}
+.btn-secondary:hover { background:#0284c7; }
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-size-base: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
+  --line-height-base: 1.6;
+
+  /* Palette */
+  --color-bg: #fafafa;
+  --color-bg-alt: #ffffff;
+  --color-text: #222222;
+  --color-muted: #6b7280;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+
+  /* Layout */
+  --border-radius: 0.75rem;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --------------------- RESET & BASE --------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover { color: var(--color-primary-dark); }
+
+/* --------------------- TYPOGRAPHY --------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--color-text);
+}
+
+small, .text-muted { color: var(--color-muted); }
+
+/* --------------------- UTILITIES --------------------- */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: 0.25rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.p-2  { padding: 0.5rem !important; }
+.p-4  { padding: 1rem !important; }
+
+/* --------------------- COMPONENTS --------------------- */
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:hover   { background-color: var(--color-primary-dark); }
+.btn:active  { transform: scale(0.98); }
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Card */
+.card {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.8);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+}
+/* Navbar menu helpers */
+.navbar-menu {
+  display:flex;
+  gap:1rem;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+/* Grid helpers */
+.container {
+  width: min(90%, 1200px);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+/* --------------------- DARK MODE --------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-bg-alt: #1e1e1e;
+    --color-text: #f3f4f6;
+    --color-muted: #9ca3af;
+    --shadow-sm: 0 1px 1px rgba(0,0,0,0.6);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  a { color: #60a5fa; }
+  a:hover { color: #93c5fd; }
+}
+
+/* --------------------- ANIMATIONS --------------------- */
+.fade-in { animation: fadeIn 0.5s both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------- FORMS --------------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-alt);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* --------------------- RESPONSIVE HELPERS --------------------- */
+@media (min-width: 60rem) {
+  :root {
+    --font-size-base: 1.125rem;
+  }
+}
+
+/* --------- INPUTS --------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  /* ↗ ρυθμίζεις ελεύθερα */
+  height: 48px;              /* ύψος μπάρας */
+  padding: 0 1rem;           /* left-right χώρο */
+  font-size: 1rem;           /* μέγεθος γραμμάτων */
+  color: var(--color-text);  /* χρώμα χαρακτήρων (ασφαλώς ορατό) */
+  width: 100%;               /* γεμίζει το διαθέσιμο πλάτος */
+}
+
+/* placeholder χρώμα λίγο “ξεθωριασμένο” */
+input::placeholder,
+textarea::placeholder { color: var(--color-muted); }
+
+/* σειρά κουμπιών: αριστερά–δεξιά */
+.row-between {
+  display: flex;
+  justify-content: space-between; /* σπρώχνει τα παιδιά στα άκρα */
+  align-items: center;           /* όρθια στο ίδιο ύψος */
+}
+
+
+.row-between{display:flex;justify-content:space-between;align-items:center}
+.stat-badge{display:inline-block;min-width:2ch;padding:0 .5rem;background:var(--color-primary);color:#fff;border-radius:999px;font-weight:600}
+.btn-sm{padding:.4rem .8rem;font-size:.875rem}
